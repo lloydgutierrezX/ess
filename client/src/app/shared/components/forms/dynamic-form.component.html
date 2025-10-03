@@ -1,0 +1,61 @@
+<form class="flex flex-col gap-4 w-full max-w-md">    
+    <ng-container *ngFor="let field of fields">
+
+
+        @let formControl = getFormControl(field.name);
+
+        @if (field) {
+            <label class="form-control w-full max-w-xs">
+
+                @if (field.label?.topRight || field.label?.topLeft) {
+                    <div class="label">
+                        <span class="label-text">{{ field.label?.topLeft }}</span>
+                        <span class="label-text-alt">{{ field.label?.topRight }}</span>
+                    </div>
+                }
+        
+
+                @switch (field.type) {
+                    @case ('select') {
+                        <app-form-select></app-form-select>
+                    }
+                    
+                    @case ('checkbox') {
+                        <app-form-checkbox></app-form-checkbox>
+                    }
+
+                    @case ('toggle') {
+                        <app-form-toggle></app-form-toggle>
+                    }
+
+                    @case ('radio') {
+                        <app-form-radio></app-form-radio>
+                    }
+
+                    <!-- Default input type (text, email, password, date & time) -->
+                    @default { 
+                        <app-form-input
+                            [config]="field"
+                            [formControl]="formControl">
+                        </app-form-input>
+                    }
+                }
+
+                <ng-container *ngIf="formControl.invalid && (formControl.dirty || formControl.touched)">
+                    <span class="label-text-alt">
+                        <app-form-error [errors]="formControl.errors"></app-form-error>
+                    </span>
+                </ng-container>
+        
+            </label>
+        }
+    </ng-container>
+
+    <div class="flex gap-2 mt-4">
+        <ng-container *ngFor="let btn of buttons">
+            <button
+                [type]="btn.type"
+                [class]="btn.style"> {{ btn.label }} </button>
+        </ng-container>
+    </div>
+</form>

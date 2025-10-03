@@ -1,0 +1,1 @@
+export type IDynamicValue = { [key: string]: string | boolean | number | null };

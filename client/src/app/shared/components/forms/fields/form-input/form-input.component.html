@@ -1,0 +1,22 @@
+@if (config.icon) {
+    <label>
+        <span class="label-text">
+            <i [class]="config.icon"></i> {{ config.label }}
+        </span>
+        <ng-container *ngTemplateOutlet="input"></ng-container>
+    </label>
+} @else {
+    <ng-container *ngTemplateOutlet="input"></ng-container>
+}
+
+
+<ng-template #input>
+    <input
+        class="input input-bordered w-full max-w-xs"
+        [formControl]="formControl"
+        [type]="type"
+        [placeholder]="placeholder"
+        [readOnly]="readonly"
+        [disabled]="disabled"
+    />
+</ng-template>
