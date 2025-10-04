@@ -2,11 +2,12 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { IInputField, IInputType } from '../../../../models/DynamicForm.model';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { IconComponent } from "../../../icons/icon.component";
 
 @Component({
   selector: 'app-form-input',
   standalone: true,
-  imports: [ReactiveFormsModule, FormsModule, CommonModule],
+  imports: [ReactiveFormsModule, FormsModule, CommonModule, IconComponent, IconComponent],
   templateUrl: './form-input.component.html',
   styleUrl: './form-input.component.scss'
 })
@@ -24,10 +25,6 @@ export class FormInputComponent implements OnInit {
     return this.config.value ?? '';
   }
 
-  get type(): IInputType {
-    return this.config.type;
-  }
-
   get placeholder(): string {
     return this.config.placeholder ?? '';
   }
@@ -40,13 +37,51 @@ export class FormInputComponent implements OnInit {
     return this.config.disabled ?? false;
   }
 
+  _icon = '';
+  get icon(): string | undefined {
+    return this._icon ?? undefined;
+  }
+
+  set icon(icon: string) {
+    this._icon = icon;
+  }
+
+  _type: IInputType = 'text';
+  get type(): IInputType {
+    return this._type;
+  }
+
+  set type(type: IInputType) {
+    this._type = type;
+  }
+
+  _showPassword = false;
+  get showPassword(): boolean {
+    return this._showPassword;
+  }
+
+  set showPassword(show: boolean) {
+    this._showPassword = show;
+  }
+
   ngOnInit(): void {
     if (!this.formControl) {
       throw new Error("FormControl is required for FormInputComponent");
     }
 
-    // this.formControl.valueChanges.subscribe(value => {
-    //   this.valueChanged.emit(value);
-    // });
+    this.type = this.config.type || 'text';
+    this.icon = this.type === 'password' ? 'eye-off' : this.config.icon ?? '';
+  }
+
+  onClick(): boolean | void {
+    if (this.config.type !== 'password') {
+      return false;
+    }
+
+    console.log(this.value);
+
+    this.icon = this.icon === 'eye' ? 'eye-off' : 'eye';
+    this.showPassword = !this.showPassword;
+    this.type = this.showPassword ? 'text' : 'password';
   }
 }

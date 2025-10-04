@@ -1,16 +1,5 @@
-@if (config.icon) {
-    <label>
-        <span class="label-text">
-            <i [class]="config.icon"></i> {{ config.label }}
-        </span>
-        <ng-container *ngTemplateOutlet="input"></ng-container>
-    </label>
-} @else {
-    <ng-container *ngTemplateOutlet="input"></ng-container>
-}
+<div class="relative">
 
-
-<ng-template #input>
     <input
         class="input input-bordered w-full max-w-xs"
         [formControl]="formControl"
@@ -19,4 +8,10 @@
         [readOnly]="readonly"
         [disabled]="disabled"
     />
-</ng-template>
+
+    @if (icon) {
+        <span class="absolute right-2 top-1/2 -translate-y-1/2 text-gray-400">
+            <app-icon [name]="icon" class="input-icon" (click)="onClick()"></app-icon>
+        </span>
+    }
+</div>

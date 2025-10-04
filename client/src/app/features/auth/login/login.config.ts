@@ -26,7 +26,8 @@ export const loginFormConfig: IDynamicForm = {
       disabled: false,
       readonly: false,
       type: 'email',
-      validators: ['required', 'email']
+      validators: ['required', 'email'],
+      icon: 'Mail'
     },
     {
       name: 'password-input',
