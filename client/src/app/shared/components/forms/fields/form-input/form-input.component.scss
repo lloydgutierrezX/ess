@@ -1,0 +1,27 @@
+/* Hide the calendar icon in WebKit browsers (Chrome, Safari) */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  display: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+/* Optional: Firefox */
+input[type="date"]::-moz-calendar-picker-indicator {
+  display: none;
+  cursor: pointer;
+}
+
+/* WebKit (Chrome, Safari) */
+input[type="time"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  display: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+}
+
+/* Firefox */
+input[type="time"]::-moz-time-picker-indicator {
+  display: none;
+  cursor: pointer;
+}

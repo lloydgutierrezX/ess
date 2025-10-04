@@ -23,25 +23,23 @@ interface IBaseField {
   readonly?: boolean;
   validators?: string[];
   icon?: string;
+  value?: string | number | boolean;
 }
 
 export type IInputType = 'text' | 'email' | 'password' | 'date' | 'time';
 
 export interface IInputField extends IBaseField {
   type: IInputType;
-  value?: string;
 }
 
 type IOption = {
   label: string;
-  value: string;
   readonly style?: string;
 }
 
 export interface ISelectField extends IBaseField {
   type: 'select';
   options: IOption[];
-  value?: string | number | boolean;
 }
 
 export interface ICheckboxField extends IBaseField {
@@ -52,7 +50,6 @@ export interface ICheckboxField extends IBaseField {
 export interface IRadioField extends IBaseField {
   type: 'radio';
   options: IOption[];
-  value?: string | number | boolean;
 }
 
 export interface IToggleField extends IBaseField {

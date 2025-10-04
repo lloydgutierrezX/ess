@@ -3,7 +3,7 @@ import { provideRouter } from '@angular/router';
 import { provideHttpClient, withInterceptors } from '@angular/common/http';
 
 import { routes } from './app.routes';
-import { Eye, EyeOff, LucideAngularModule, Mail } from 'lucide-angular';
+import { Calendar, Clock, Eye, EyeOff, LucideAngularModule, Mail } from 'lucide-angular';
 
 export const appConfig: ApplicationConfig = {
   providers: [
@@ -16,7 +16,7 @@ export const appConfig: ApplicationConfig = {
     provideRouter(routes),
     importProvidersFrom(
       LucideAngularModule.pick({
-        Eye, EyeOff, Mail
+        Eye, EyeOff, Mail, Calendar, Clock
       })
     )
   ],

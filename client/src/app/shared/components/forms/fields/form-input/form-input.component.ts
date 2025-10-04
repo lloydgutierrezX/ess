@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Component, ElementRef, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { IInputField, IInputType } from '../../../../models/DynamicForm.model';
 import { FormControl, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
@@ -17,11 +17,13 @@ export class FormInputComponent implements OnInit {
   @Input() config!: IInputField;
   @Output() valueChanged = new EventEmitter<string>();
 
+  @ViewChild('inputElement') inputElement!: ElementRef<HTMLInputElement>;
+
   get name(): string {
     return this.config.name;
   }
 
-  get value(): string | undefined {
+  get value(): string | number | boolean {
     return this.config.value ?? '';
   }
 
@@ -74,14 +76,17 @@ export class FormInputComponent implements OnInit {
   }
 
   onClick(): boolean | void {
-    if (this.config.type !== 'password') {
+
+    if (this.disabled) {
       return false;
     }
 
-    console.log(this.value);
-
-    this.icon = this.icon === 'eye' ? 'eye-off' : 'eye';
-    this.showPassword = !this.showPassword;
-    this.type = this.showPassword ? 'text' : 'password';
+    if (this.config.type == 'password') {
+      this.icon = this.icon === 'eye' ? 'eye-off' : 'eye';
+      this.showPassword = !this.showPassword;
+      this.type = this.showPassword ? 'text' : 'password';
+    } else if (this.config.type === 'date' || this.config.type === 'time') {
+      this.inputElement.nativeElement.showPicker?.();
+    }
   }
 }

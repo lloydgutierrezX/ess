@@ -1,12 +1,14 @@
 <div class="relative">
 
     <input
+        #inputElement
         class="input input-bordered w-full max-w-xs"
         [formControl]="formControl"
         [type]="type"
         [placeholder]="placeholder"
         [readOnly]="readonly"
         [disabled]="disabled"
+        [value]="value"
     />
 
     @if (icon) {

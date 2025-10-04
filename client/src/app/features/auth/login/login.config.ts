@@ -38,88 +38,113 @@ export const loginFormConfig: IDynamicForm = {
       },
       placeholder: 'Type here your password',
       disabled: false,
-      readonly: false,
-      type: 'password'
+      readonly: true,
+      type: 'password',
+      value: 'mypassword'
     },
     {
-      name: 'select-input',
+      name: 'Date picker',
       label: {
-        topLeft: 'Favorite fruit',
-        topRight: 'Select one',
-        bottomLeft: 'Choose carefully',
-      },
-      placeholder: 'What is your favorite fruit',
-      disabled: false,
-      readonly: false,
-      type: 'select',
-      options: [
-        {
-          label: 'Apple',
-          value: 'apple',
-          style: 'color-red'
-        },
-        {
-          label: 'Banana',
-          value: 'banana',
-          style: 'color-yellow'
-        },
-        {
-          label: 'Orange',
-          value: 'orange',
-          style: 'color-orange'
-        },
-      ]
-    },
-    {
-      name: 'checkbox-input',
-      label: {
-        topLeft: 'Accept Terms',
+        topLeft: 'Date of Birth',
         topRight: 'Required',
-        bottomLeft: 'You must accept to continue',
+        bottomLeft: '',
       },
-      placeholder: 'This is a checkbox',
       disabled: false,
       readonly: false,
-      type: 'checkbox',
-      checked: true
+      type: 'date',
+      icon: 'Calendar'
     },
     {
-      name: 'radio-input',
+      name: 'time-picker',
       label: {
-        topLeft: 'Gender',
-        topRight: 'Select one',
-        bottomLeft: 'Pick your gender',
+        topLeft: 'Time of Meeting',
+        topRight: 'Required',
+        bottomLeft: '',
       },
-      placeholder: 'Male / Female?',
-      disabled: false,
-      readonly: false,
-      type: 'radio',
-      options: [
-        {
-          label: 'Male',
-          value: 'male',
-          style: 'color-blue'
-        },
-        {
-          label: 'Female',
-          value: 'female',
-          style: 'color-red'
-        }
-      ]
+      disabled: true,
+      readonly: true,
+      type: 'time',
+      icon: 'Clock'
     },
-    {
-      name: 'toggle-input',
-      label: {
-        topLeft: 'Enable Notifications',
-        topRight: 'Optional',
-        bottomLeft: 'Turn on to recieve updates',
-      },
-      placeholder: 'notification settings',
-      disabled: false,
-      readonly: false,
-      type: 'toggle',
-      checked: true
-    },
+    // {
+    //   name: 'radio-input',
+    //   label: {
+    //     topLeft: 'Gender',
+    //     topRight: 'Select one',
+    //     bottomLeft: 'Pick your gender',
+    //   },
+    //   placeholder: 'Male / Female?',
+    //   disabled: false,
+    //   readonly: false,
+    //   type: 'radio',
+    //   options: [
+    //     {
+    //       label: 'Male',
+    //       value: 'male',
+    //       style: 'color-blue'
+    //     },
+    //     {
+    //       label: 'Female',
+    //       value: 'female',
+    //       style: 'color-red'
+    //     }
+    //   ]
+    // },
+    // {
+    //   name: 'select-input',
+    //   label: {
+    //     topLeft: 'Favorite fruit',
+    //     topRight: 'Select one',
+    //     bottomLeft: 'Choose carefully',
+    //   },
+    //   placeholder: 'What is your favorite fruit',
+    //   disabled: false,
+    //   readonly: false,
+    //   type: 'select',
+    //   options: [
+    //     {
+    //       label: 'Apple',
+    //       value: 'apple',
+    //       style: 'color-red'
+    //     },
+    //     {
+    //       label: 'Banana',
+    //       value: 'banana',
+    //       style: 'color-yellow'
+    //     },
+    //     {
+    //       label: 'Orange',
+    //       value: 'orange',
+    //       style: 'color-orange'
+    //     },
+    //   ]
+    // },
+    // {
+    //   name: 'checkbox-input',
+    //   label: {
+    //     topLeft: 'Accept Terms',
+    //     topRight: 'Required',
+    //     bottomLeft: 'You must accept to continue',
+    //   },
+    //   placeholder: 'This is a checkbox',
+    //   disabled: false,
+    //   readonly: false,
+    //   type: 'checkbox',
+    //   checked: true
+    // },
+    // {
+    //   name: 'toggle-input',
+    //   label: {
+    //     topLeft: 'Enable Notifications',
+    //     topRight: 'Optional',
+    //     bottomLeft: 'Turn on to recieve updates',
+    //   },
+    //   placeholder: 'notification settings',
+    //   disabled: false,
+    //   readonly: false,
+    //   type: 'toggle',
+    //   checked: true
+    // },
   ],
   buttons: [
     {
