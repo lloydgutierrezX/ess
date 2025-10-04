@@ -48,6 +48,8 @@ export interface ISelectField extends IBaseField {
 export interface ICheckboxField extends IBaseField {
   type: 'checkbox';
   checked?: boolean;
+  checkboxLabel?: string;
+  readonly style?: string;
 }
 
 export interface IRadioField extends IBaseField {

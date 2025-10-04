@@ -121,33 +121,34 @@ export const loginFormConfig: IDynamicForm = {
     //   ],
     //   value: 'banana'
     // },
-    // {
-    //   name: 'checkbox-input',
-    //   label: {
-    //     topLeft: 'Accept Terms',
-    //     topRight: 'Required',
-    //     bottomLeft: 'You must accept to continue',
-    //   },
-    //   placeholder: 'This is a checkbox',
-    //   disabled: false,
-    //   readonly: false,
-    //   type: 'checkbox',
-    //   checked: true
-    // },
     {
-      name: 'toggle-input',
+      name: 'checkbox-input',
       label: {
-        topLeft: 'Enable Notifications',
-        topRight: 'Optional',
-        bottomLeft: 'Turn on to recieve updates',
+        topLeft: 'Accept Terms',
+        topRight: 'Required',
+        bottomLeft: 'You must accept to continue',
       },
-      placeholder: 'notification settings',
+      placeholder: 'This is a checkbox',
       disabled: false,
       readonly: false,
-      toggleLabel: 'Notifications',
-      type: 'toggle',
-      checked: true
+      type: 'checkbox',
+      checked: false,
+      checkboxLabel: 'I accept the terms and conditions',
     },
+    // {
+    //   name: 'toggle-input',
+    //   label: {
+    //     topLeft: 'Enable Notifications',
+    //     topRight: 'Optional',
+    //     bottomLeft: 'Turn on to recieve updates',
+    //   },
+    //   placeholder: 'notification settings',
+    //   disabled: false,
+    //   readonly: false,
+    //   toggleLabel: 'Notifications',
+    //   type: 'toggle',
+    //   checked: true
+    // },
   ],
   buttons: [
     {

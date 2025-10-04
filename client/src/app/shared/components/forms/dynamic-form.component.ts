@@ -42,7 +42,8 @@ export class DynamicFormComponent implements OnInit {
 
     this.fields.forEach(field => {
       const validators = mapValidators(field.validators || []);
-      group[field.name] = this.fb.control(field.value ?? null, validators)
+      const value = field.type === 'checkbox' || field.type === 'toggle' ? field.checked : field.value;
+      group[field.name] = this.fb.control(value ?? null, validators)
     });
 
     this.form = this.fb.group(group);

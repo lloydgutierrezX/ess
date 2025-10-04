@@ -37,7 +37,7 @@ describe('FormToggleComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [
-        FormToggleComponent,
+        TestHostComponent,
         FormToggleComponent,
         FormsModule,
         CommonModule

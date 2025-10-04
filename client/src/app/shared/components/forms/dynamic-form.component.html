@@ -23,7 +23,10 @@
                     }
                     
                     @case ('checkbox') {
-                        <app-form-checkbox></app-form-checkbox>
+                        <app-form-checkbox
+                            [config]="field"
+                            [formControl]="formControl">
+                        ></app-form-checkbox>
                     }
 
                     @case ('toggle') {

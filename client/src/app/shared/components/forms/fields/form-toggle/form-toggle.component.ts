@@ -15,10 +15,6 @@ export class FormToggleComponent {
   @Input() formControl!: FormControl;
   @Input() config!: IToggleField;
 
-  get value(): boolean | null {
-    return this.formControl?.value ?? false;
-  }
-
   get label(): string | null {
     return this.config?.toggleLabel ?? null;
   }
@@ -26,13 +22,5 @@ export class FormToggleComponent {
   get disabled(): boolean {
     console.log(this.config?.disabled);
     return this.config?.disabled ?? false;
-  }
-
-  onClick(): void {
-    if (this.disabled) {
-      return;
-    }
-
-    this.formControl?.setValue(!this.value);
   }
 }

@@ -1,1 +1,14 @@
-<p>form-checkbox works!</p>
+<div class="form-control">
+  <label class="label cursor-pointer">
+
+    @if (label) {
+        <span class="label-text checkbox-label">{{ label }}</span>
+    }
+
+    <input type="checkbox" class="checkbox"
+        [formControl]="formControl"
+        [attr.disabled]="disabled"
+        [class]="style"
+    />
+  </label>
+</div>
