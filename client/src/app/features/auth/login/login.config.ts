@@ -66,31 +66,31 @@ export const loginFormConfig: IDynamicForm = {
     //   type: 'time',
     //   icon: 'Clock'
     // },
-    {
-      name: 'radio-input',
-      label: {
-        topLeft: 'Gender',
-        topRight: 'Select one',
-        bottomLeft: 'Pick your gender',
-      },
-      placeholder: 'Male / Female?',
-      disabled: false,
-      readonly: false,
-      type: 'radio',
-      options: [
-        {
-          label: 'Male',
-          value: 'male',
-          style: 'color-blue'
-        },
-        {
-          label: 'Female',
-          value: 'female',
-          style: 'color-red'
-        }
-      ],
-      orientation: 'vertical'
-    },
+    // {
+    //   name: 'radio-input',
+    //   label: {
+    //     topLeft: 'Gender',
+    //     topRight: 'Select one',
+    //     bottomLeft: 'Pick your gender',
+    //   },
+    //   placeholder: 'Male / Female?',
+    //   disabled: false,
+    //   readonly: false,
+    //   type: 'radio',
+    //   options: [
+    //     {
+    //       label: 'Male',
+    //       value: 'male',
+    //       style: 'color-blue'
+    //     },
+    //     {
+    //       label: 'Female',
+    //       value: 'female',
+    //       style: 'color-red'
+    //     }
+    //   ],
+    //   orientation: 'vertical'
+    // },
     // {
     //   name: 'select-input',
     //   label: {
@@ -134,19 +134,20 @@ export const loginFormConfig: IDynamicForm = {
     //   type: 'checkbox',
     //   checked: true
     // },
-    // {
-    //   name: 'toggle-input',
-    //   label: {
-    //     topLeft: 'Enable Notifications',
-    //     topRight: 'Optional',
-    //     bottomLeft: 'Turn on to recieve updates',
-    //   },
-    //   placeholder: 'notification settings',
-    //   disabled: false,
-    //   readonly: false,
-    //   type: 'toggle',
-    //   checked: true
-    // },
+    {
+      name: 'toggle-input',
+      label: {
+        topLeft: 'Enable Notifications',
+        topRight: 'Optional',
+        bottomLeft: 'Turn on to recieve updates',
+      },
+      placeholder: 'notification settings',
+      disabled: false,
+      readonly: false,
+      toggleLabel: 'Notifications',
+      type: 'toggle',
+      checked: true
+    },
   ],
   buttons: [
     {

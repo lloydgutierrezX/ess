@@ -1,1 +1,15 @@
-<p>form-toggle works!</p>
+<div class="form-control">
+    <label class="label cursor-pointer">
+
+        @if (label) {
+            <span class="label-text toggle-label">{{ label }}</span>
+        }
+
+        <input type="checkbox"
+            class="toggle"
+            [formControl]="formControl"
+            [attr.disabled]="disabled"
+            />
+
+    </label>
+</div>

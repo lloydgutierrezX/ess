@@ -59,6 +59,8 @@ export interface IRadioField extends IBaseField {
 export interface IToggleField extends IBaseField {
   type: 'toggle';
   checked?: boolean;
+  toggleLabel?: string;
+  readonly style?: string;
 }
 
 // Button interfaces
