@@ -1,1 +1,22 @@
-<p>form-select works!</p>
+<select
+    class="select select-bordered w-full max-w-xs"
+    [formControl]="formControl"
+    [id]="config.name"
+    [name]="config.name"
+    [disabled]="disabled">
+
+    <option disabled
+        [value]="null"
+        [selected]="!value">
+        {{ placeholder || 'Select an option' }}
+    </option>
+
+    <ng-container *ngFor="let option of options">
+        <option
+            [class]="option.style ?? ''"
+            [value]="option.value"
+            [selected]="option.value === value">
+            {{ option.label }}
+        </option>
+    </ng-container>
+</select>

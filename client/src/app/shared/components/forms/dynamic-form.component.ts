@@ -42,7 +42,7 @@ export class DynamicFormComponent implements OnInit {
 
     this.fields.forEach(field => {
       const validators = mapValidators(field.validators || []);
-      group[field.name] = this.fb.control(field.value ?? '', validators)
+      group[field.name] = this.fb.control(field.value ?? null, validators)
     });
 
     this.form = this.fb.group(group);

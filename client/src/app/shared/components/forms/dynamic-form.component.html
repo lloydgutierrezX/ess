@@ -17,7 +17,9 @@
 
                 @switch (field.type) {
                     @case ('select') {
-                        <app-form-select></app-form-select>
+                        <app-form-select
+                            [config]="field"
+                            [formControl]="formControl"></app-form-select>
                     }
                     
                     @case ('checkbox') {

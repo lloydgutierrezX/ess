@@ -32,14 +32,17 @@ export interface IInputField extends IBaseField {
   type: IInputType;
 }
 
-type IOption = {
+export type IOption = {
   label: string;
+  value: string | number | boolean;
+  disabled?: boolean;
   readonly style?: string;
 }
 
 export interface ISelectField extends IBaseField {
   type: 'select';
   options: IOption[];
+  value?: string | number | boolean;
 }
 
 export interface ICheckboxField extends IBaseField {

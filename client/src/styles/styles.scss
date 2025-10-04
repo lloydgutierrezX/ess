@@ -6,7 +6,8 @@ body {
   @apply bg-base-100 text-base-content;
 }
 
-.input:focus {
+.input:focus,
+select:focus {
   outline: none !important;
   box-shadow: none !important;
 }

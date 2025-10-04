@@ -15,7 +15,6 @@ export class FormInputComponent implements OnInit {
 
   @Input() formControl!: FormControl;
   @Input() config!: IInputField;
-  @Output() valueChanged = new EventEmitter<string>();
 
   @ViewChild('inputElement') inputElement!: ElementRef<HTMLInputElement>;
 
