@@ -53,6 +53,7 @@ export interface ICheckboxField extends IBaseField {
 export interface IRadioField extends IBaseField {
   type: 'radio';
   options: IOption[];
+  orientation?: 'horizontal' | 'vertical';
 }
 
 export interface IToggleField extends IBaseField {

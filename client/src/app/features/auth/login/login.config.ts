@@ -66,60 +66,61 @@ export const loginFormConfig: IDynamicForm = {
     //   type: 'time',
     //   icon: 'Clock'
     // },
-    // {
-    //   name: 'radio-input',
-    //   label: {
-    //     topLeft: 'Gender',
-    //     topRight: 'Select one',
-    //     bottomLeft: 'Pick your gender',
-    //   },
-    //   placeholder: 'Male / Female?',
-    //   disabled: false,
-    //   readonly: false,
-    //   type: 'radio',
-    //   options: [
-    //     {
-    //       label: 'Male',
-    //       value: 'male',
-    //       style: 'color-blue'
-    //     },
-    //     {
-    //       label: 'Female',
-    //       value: 'female',
-    //       style: 'color-red'
-    //     }
-    //   ]
-    // },
     {
-      name: 'select-input',
+      name: 'radio-input',
       label: {
-        topLeft: 'Favorite fruit',
+        topLeft: 'Gender',
         topRight: 'Select one',
-        bottomLeft: 'Choose carefully',
+        bottomLeft: 'Pick your gender',
       },
-      placeholder: 'What is your favorite fruit',
+      placeholder: 'Male / Female?',
       disabled: false,
       readonly: false,
-      type: 'select',
+      type: 'radio',
       options: [
         {
-          label: 'Apple',
-          value: 'apple',
-          style: 'bg-red-100 text-red-700 font-bold'
+          label: 'Male',
+          value: 'male',
+          style: 'color-blue'
         },
         {
-          label: 'Banana',
-          value: 'banana',
-          style: 'bg-blue-100 text-red-400 font-extra-bold'
-        },
-        {
-          label: 'Orange',
-          value: 'orange',
-          style: 'bg-orange-100 text-orange-700 font-bold'
-        },
+          label: 'Female',
+          value: 'female',
+          style: 'color-red'
+        }
       ],
-      value: 'banana'
+      orientation: 'vertical'
     },
+    // {
+    //   name: 'select-input',
+    //   label: {
+    //     topLeft: 'Favorite fruit',
+    //     topRight: 'Select one',
+    //     bottomLeft: 'Choose carefully',
+    //   },
+    //   placeholder: 'What is your favorite fruit',
+    //   disabled: false,
+    //   readonly: false,
+    //   type: 'select',
+    //   options: [
+    //     {
+    //       label: 'Apple',
+    //       value: 'apple',
+    //       style: 'bg-red-100 text-red-700 font-bold'
+    //     },
+    //     {
+    //       label: 'Banana',
+    //       value: 'banana',
+    //       style: 'bg-blue-100 text-red-400 font-extra-bold'
+    //     },
+    //     {
+    //       label: 'Orange',
+    //       value: 'orange',
+    //       style: 'bg-orange-100 text-orange-700 font-bold'
+    //     },
+    //   ],
+    //   value: 'banana'
+    // },
     // {
     //   name: 'checkbox-input',
     //   label: {

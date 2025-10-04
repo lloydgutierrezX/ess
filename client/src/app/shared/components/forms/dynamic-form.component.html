@@ -31,7 +31,10 @@
                     }
 
                     @case ('radio') {
-                        <app-form-radio></app-form-radio>
+                        <app-form-radio
+                            [config]="field"
+                            [formControl]="formControl"
+                        ></app-form-radio>
                     }
 
                     <!-- Default input type (text, email, password, date & time) -->
