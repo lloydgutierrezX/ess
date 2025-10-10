@@ -1,13 +1,13 @@
-import { IDynamicValue } from "./Global.model";
+import { IActions } from "./Actions.model";
+import { IButtons } from "./Buttons.model";
 
 export interface IDynamicForm {
   formControl: IFields[];
-  buttons: IButtons[];
+  actions: IActions[];
   name?: string;
 }
 
 export type IFields = IInputField | ISelectField | ICheckboxField | IToggleField | IRadioField;
-export type IButtons = IDefaultButton | ILoginButton | IResetButton;
 
 // Form control field interfaces
 interface IBaseField {
@@ -63,26 +63,4 @@ export interface IToggleField extends IBaseField {
   checked?: boolean;
   toggleLabel?: string;
   readonly style?: string;
-}
-
-// Button interfaces
-type IBaseButton = {
-  label: string;
-  style: string;
-  disabled?: boolean;
-}
-
-interface IDefaultButton extends IBaseButton {
-  type: 'button';
-  action: (formValue?: IDynamicValue) => void;
-}
-
-interface ILoginButton extends IBaseButton {
-  type: 'submit';
-  action: (formValue?: IDynamicValue) => void;
-}
-
-interface IResetButton extends IBaseButton {
-  type: 'reset';
-  action?: (formValue?: IDynamicValue) => void;
 }

@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { IButtons, IDynamicForm, IFields } from '../../models/DynamicForm.model';
+import { IDynamicForm, IFields } from '../../models/DynamicForm.model';
 import { CommonModule } from '@angular/common';
 import { FormInputComponent } from './fields/form-input/form-input.component';
 import { FormSelectComponent } from './fields/form-select/form-select.component';
@@ -9,6 +9,7 @@ import { FormCheckboxComponent } from './fields/form-checkbox/form-checkbox.comp
 import { FormBuilder, FormControl, FormGroup } from '@angular/forms';
 import { mapValidators } from '../../utils/validators/map-validator.util';
 import { FormErrorComponent } from './errors/form-error.component';
+import { IButtons } from '../../models/Buttons.model';
 
 @Component({
   selector: 'app-dynamic-form',
@@ -21,10 +22,6 @@ export class DynamicFormComponent implements OnInit {
   @Input() config!: IDynamicForm;
 
   form?: FormGroup;
-
-  get buttons(): IButtons[] {
-    return this.config.buttons;
-  }
 
   get fields(): IFields[] {
     return this.config.formControl;

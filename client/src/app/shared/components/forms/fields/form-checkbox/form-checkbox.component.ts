@@ -19,7 +19,6 @@ export class FormCheckboxComponent {
   }
 
   get disabled(): boolean {
-    console.log(this.config?.disabled);
     return this.config?.disabled ?? false;
   }
 

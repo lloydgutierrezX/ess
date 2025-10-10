@@ -1,11 +1,12 @@
-<form class="flex flex-col gap-4 w-full max-w-md">    
+<form class="flex flex-col gap-4 w-full">
+
+    <ng-content select="[title]"></ng-content>
+
     <ng-container *ngFor="let field of fields">
-
-
         @let formControl = getFormControl(field.name);
 
         @if (field) {
-            <label class="form-control w-full max-w-xs">
+            <label class="form-control w-full">
 
                 @if (field.label?.topRight || field.label?.topLeft) {
                     <div class="label">
@@ -62,11 +63,5 @@
         }
     </ng-container>
 
-    <div class="flex gap-2 mt-4">
-        <ng-container *ngFor="let btn of buttons">
-            <button
-                [type]="btn.type"
-                [class]="btn.style"> {{ btn.label }} </button>
-        </ng-container>
-    </div>
+    <ng-content select="[buttons]"></ng-content>
 </form>

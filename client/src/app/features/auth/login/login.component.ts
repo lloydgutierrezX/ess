@@ -11,4 +11,9 @@ import { DynamicFormComponent } from "../../../shared/components/forms/dynamic-f
 })
 export class LoginComponent {
   formConfig = loginFormConfig;
+
+  // getButtonConfig(name: string) {
+  //   const button = this.formConfig.buttons.find(x => x.name === name);
+  //   return button ?? null;
+  // }
 }
