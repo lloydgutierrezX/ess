@@ -1,43 +1,80 @@
-# See https://docs.github.com/get-started/getting-started-with-git/ignoring-files for more about ignoring files.
+# ----------------------------------------
+# 1. DEPENDENCIES AND BUILD OUTPUT
+# ----------------------------------------
 
-# Compiled output
-/dist
-/tmp
-/out-tsc
-/bazel-out
-
-# Node
+# Node Modules (General)
 /node_modules
-npm-debug.log
-yarn-error.log
+# Lockfiles (If you prefer to ignore, though keeping lockfiles is recommended)
+# npm-debug.log*
+# yarn-error.log
+# package-lock.json
+# yarn.lock
 
-# IDEs and editors
-.idea/
-.project
-.classpath
-.c9/
-*.launch
-.settings/
-*.sublime-workspace
+# Angular Client (Output and Cache)
+# Angular build output (usually 'dist' or 'out-tsc')
+/client/dist
+/client/out-tsc
 
-# Visual Studio Code
-.vscode/*
-!.vscode/settings.json
-!.vscode/tasks.json
-!.vscode/launch.json
-!.vscode/extensions.json
-.history/*
+# Angular node_modules
+/client/node_modules
 
-# Miscellaneous
-/.angular/cache
-.sass-cache/
-/connect.lock
-/coverage
-/libpeerconnection.log
-testem.log
-/typings
-__screenshots__/
+# package-lock.json
+/client/package-lock.json
 
-# System files
+# Angular cache directory
+.angular/cache
+
+# Server (Build/Transpiled Output)
+# Common output folder for TypeScript compilation (e.g., 'dist' or 'build')
+/server/dist
+/server/build
+
+# server node_modules
+server/node_modules
+
+# ----------------------------------------
+# 2. ENVIRONMENT AND SECRETS
+# ----------------------------------------
+
+# Environment Variables
+.env
+.env.*
+# If you use a special file for local secrets
+.local.env
+
+# ----------------------------------------
+# 3. OS AND EDITOR GENERATED FILES
+# ----------------------------------------
+
+# OS generated files
 .DS_Store
 Thumbs.db
+
+# VS Code
+.vscode/*
+!/.vscode/settings.json # Optional: Keep shared settings
+!/.vscode/tasks.json    # Optional: Keep shared tasks
+!/.vscode/launch.json   # Optional: Keep launch configs
+!/.vscode/extensions.json # Optional: Keep recommended extensions
+
+# IntelliJ/WebStorm
+.idea/
+
+# ----------------------------------------
+# 4. PRISMA SPECIFIC FILES (SERVER)
+# ----------------------------------------
+
+# Prisma generated clients (often inside node_modules, but good to be explicit)
+# If Prisma generates files outside node_modules, you should check your config.
+# Common practice is to ignore the client files if they are committed, 
+# but they usually reside in node_modules and are already ignored.
+# If you run generate locally and commit schema, you can ignore the generated client files.
+# For now, stick with the node_modules exclusion.
+
+# ----------------------------------------
+# 5. ANGULAR/TESTING SPECIFIC
+# ----------------------------------------
+
+# Coverage reports
+/client/coverage
+/server/coverage

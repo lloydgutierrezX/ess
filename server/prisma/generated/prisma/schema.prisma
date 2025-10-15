@@ -1,0 +1,403 @@
+/// `DEBIT` — System will deduct from balance
+/// `CREDIT` — System will add to balance
+enum BenefitType {
+  DEBIT
+  CREDIT
+}
+
+model Benefit {
+  id          Int         @id @default(autoincrement()) @map("id")
+  code        String      @unique @db.VarChar(30)
+  name        String      @unique @db.VarChar(60)
+  type        BenefitType
+  active      Boolean     @default(true) @map("is_active")
+  description String?     @db.VarChar(255)
+  createdAt   DateTime    @default(now()) @map("created_at")
+  updatedAt   DateTime    @updatedAt @map("updated_at")
+
+  userAllowance UserBenefit[]
+
+  @@index([code])
+  @@index([active])
+  @@index([name])
+  @@index([code, active])
+  @@map("benefit")
+}
+
+model EmployeeType {
+  id          Int      @id @default(autoincrement())
+  code        String   @unique @db.VarChar(15)
+  name        String   @unique @db.VarChar(60)
+  active      Boolean  @default(true) @map("is_active")
+  description String?  @db.VarChar(255)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  user User[]
+
+  @@index([code])
+  @@index([active])
+  @@index([name])
+  @@index([code, active])
+  @@map("employee_type")
+}
+
+// model ProjectStatus {
+//   id Int @id @default(autoincrement())
+//   name String @db.VarChar(60) @unique
+//   active Boolean @default(true) @map("is_active")
+//   description String @db.VarChar(255)
+//   createdAt DateTime @default(now()) @map("created_at")
+//   updatedAt DateTime @updatedAt @map("updated_at")
+
+//   @@map("project_status")
+// }
+
+model Position {
+  id          Int      @id @default(autoincrement())
+  code        String   @unique @db.VarChar(20)
+  name        String   @unique @db.VarChar(60)
+  active      Boolean  @default(true) @map("is_active")
+  description String?  @db.VarChar(255)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  user User[]
+
+  @@index([code])
+  @@index([active])
+  @@index([name])
+  @@index([code, active])
+  @@map("position")
+}
+
+model Task {
+  id          Int      @id @default(autoincrement())
+  code        String   @unique @db.VarChar(30)
+  name        String   @unique @db.VarChar(60)
+  active      Boolean  @default(true) @map("is_active")
+  description String?  @db.VarChar(255)
+  createdAt   DateTime @default(now()) @map("created_at")
+  updatedAt   DateTime @updatedAt @map("updated_at")
+
+  @@index([code])
+  @@index([active])
+  @@index([name])
+  @@index([code, active])
+  @@map("task")
+}
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+enum MaritalStatus {
+  SINGLE
+  MARRIED
+  WIDOWED
+  DIVORCED
+}
+
+enum Gender {
+  MALE
+  FEMALE
+}
+
+enum Nationality {
+  AFGHAN
+  ALBANIAN
+  ALGERIAN
+  AMERICAN
+  ANDORRAN
+  ANGOLAN
+  ANTIGUAN
+  ARGENTINE
+  ARMENIAN
+  AUSTRALIAN
+  AUSTRIAN
+  AZERBAIJANI
+  BAHAMIAN
+  BAHRAINI
+  BANGLADESHI
+  BARBADIAN
+  BELARUSIAN
+  BELGIAN
+  BELIZEAN
+  BENINESE
+  BHUTANESE
+  BOLIVIAN
+  BOSNIAN
+  BOTSWANAN
+  BRAZILIAN
+  BRITISH
+  BRUNEIAN
+  BULGARIAN
+  BURKINABE
+  BURMESE
+  BURUNDIAN
+  CAMBODIAN
+  CAMEROONIAN
+  CANADIAN
+  CAPE_VERDEAN
+  CENTRAL_AFRICAN
+  CHADIAN
+  CHILEAN
+  CHINESE
+  COLOMBIAN
+  COMORAN
+  CONGOLESE
+  COSTA_RICAN
+  CROATIAN
+  CUBAN
+  CYPRIOT
+  CZECH
+  DANISH
+  DJIBOUTIAN
+  DOMINICAN
+  DUTCH
+  EAST_TIMORESE
+  ECUADORIAN
+  EGYPTIAN
+  EMIRATI
+  ENGLISH
+  EQUATOGUINEAN
+  ERITREAN
+  ESTONIAN
+  ETHIOPIAN
+  FIJIAN
+  FILIPINO
+  FINNISH
+  FRENCH
+  GABONESE
+  GAMBIAN
+  GEORGIAN
+  GERMAN
+  GHANAIAN
+  GREEK
+  GRENADIAN
+  GUATEMALAN
+  GUINEAN
+  GUINEA_BISSAUAN
+  GUYANESE
+  HAITIAN
+  HERZEGOVINIAN
+  HONDURAN
+  HUNGARIAN
+  ICELANDIC
+  INDIAN
+  INDONESIAN
+  IRANIAN
+  IRAQI
+  IRISH
+  ISRAELI
+  ITALIAN
+  IVORIAN
+  JAMAICAN
+  JAPANESE
+  JORDANIAN
+  KAZAKHSTANI
+  KENYAN
+  KIRIBATI
+  KOREAN
+  KOSOVAR
+  KUWAITI
+  KYRGYZ
+  LAOTIAN
+  LATVIAN
+  LEBANESE
+  LIBERIAN
+  LIBYAN
+  LIECHTENSTEINER
+  LITHUANIAN
+  LUXEMBOURGER
+  MACEDONIAN
+  MALAGASY
+  MALAWIAN
+  MALAYSIAN
+  MALDIVIAN
+  MALIEN
+  MALTESE
+  MARSHALLESE
+  MAURITANIAN
+  MAURITIAN
+  MEXICAN
+  MICRONESIAN
+  MOLDOVAN
+  MONACAN
+  MONGOLIAN
+  MONTENEGRIN
+  MOROCCAN
+  MOSOTHO
+  MOZAMBICAN
+  NAMIBIAN
+  NAURUAN
+  NEPALESE
+  NEW_ZEALANDER
+  NICARAGUAN
+  NIGERIEN
+  NIGERIAN
+  NORWEGIAN
+  OMANI
+  PAKISTANI
+  PALAUAN
+  PALESTINIAN
+  PANAMANIAN
+  PAPUA_NEW_GUINEAN
+  PARAGUAYAN
+  PERUVIAN
+  POLISH
+  PORTUGUESE
+  QATARI
+  ROMANIAN
+  RUSSIAN
+  RWANDAN
+  SAINT_LUCIAN
+  SALVADORAN
+  SAMOAN
+  SAN_MARINESE
+  SAO_TOMEAN
+  SAUDI
+  SCOTTISH
+  SENEGALESE
+  SERBIAN
+  SEYCHELLOIS
+  SIERRA_LEONEAN
+  SINGAPOREAN
+  SLOVAK
+  SLOVENIAN
+  SOLOMON_ISLANDER
+  SOMALI
+  SOUTH_AFRICAN
+  SPANISH
+  SRI_LANKAN
+  SUDANESE
+  SURINAMESE
+  SWAZI
+  SWEDISH
+  SWISS
+  SYRIAN
+  TAIWANESE
+  TAJIK
+  TANZANIAN
+  THAI
+  TOGOLESE
+  TONGAN
+  TRINIDADIAN
+  TUNISIAN
+  TURKISH
+  TURKMEN
+  TUVALUAN
+  UGANDAN
+  UKRAINIAN
+  URUGUAYAN
+  UZBEK
+  VATICAN
+  VENEZUELAN
+  VIETNAMESE
+  WELSH
+  YEMENI
+  ZAMBIAN
+  ZIMBABWEAN
+}
+
+model UserBasicInfo {
+  id            Int           @id @default(autoincrement())
+  userId        String        @map("user_id")
+  firstName     String        @map("first_name") @db.VarChar(60)
+  middleName    String        @map("middle_name") @db.VarChar(60)
+  lastName      String        @map("last_name") @db.VarChar(60)
+  birthdate     DateTime
+  mobileNumber  String        @unique @map("mobile_number") @db.VarChar(11)
+  maritalStatus MaritalStatus @map("marital_status")
+  gender        Gender
+
+  nationality Nationality
+
+  provinceCode String @map("province_code") @db.VarChar(5)
+  cityCode     String @map("city_code") @db.VarChar(7)
+  brangayCode  String @map("brangay_code") @db.VarChar(10)
+  zipCode      String @map("zip_code") @db.VarChar(4)
+  address      String @db.VarChar(120)
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("user_basic_info")
+}
+
+model UserEmploymentBackground {
+  id        Int      @id @default(autoincrement())
+  userId    String   @map("user_id")
+  company   String   @db.VarChar(120)
+  position  String   @db.VarChar(120)
+  dateStart DateTime @map("date_start")
+  dateEnd   DateTime @map("date_end")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("user_employment_background")
+}
+
+model UserEducationalBackground {
+  id        Int      @id @default(autoincrement())
+  userId    String   @map("user_id")
+  school    String   @db.Text
+  level     String   @db.VarChar(120)
+  dateStart DateTime @map("date_start")
+  dateEnd   DateTime @map("date_end")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("user_educational_background")
+}
+
+model UserEmployementInfo {
+  id                 Int      @id @default(autoincrement())
+  userId             String   @map("user_id")
+  employeeId         Int      @unique @map("employee_id")
+  salary             Decimal
+  dateRegularization DateTime @map("date_regularization")
+  dateStart          DateTime @map("date_start")
+  dateEnd            DateTime @map("date_end")
+
+  user User @relation(fields: [userId], references: [id])
+
+  @@map("user_employment_info")
+}
+
+model User {
+  id         String   @id @default(uuid())
+  keycloakId String   @unique
+  email      String?
+  active     Boolean  @default(true) @map("is_active")
+  createdAt  DateTime @default(now()) @map("created_at")
+  updatedAt  DateTime @updatedAt @map("updated_at")
+
+  UserBasicInfo             UserBasicInfo[]
+  UserEmploymentBackground  UserEmploymentBackground[]
+  UserEducationalBackground UserEducationalBackground[]
+  UserEmployementInfo       UserEmployementInfo[]
+  UserBenefit               UserBenefit[]
+
+  EmployeeType EmployeeType[]
+  Position     Position[]
+
+  @@map("user")
+}
+
+model UserBenefit {
+  userId    String  @map("user_id")
+  benefitId Int     @map("benefit_id")
+  amount    Decimal
+
+  user    User    @relation(fields: [userId], references: [id])
+  benefit Benefit @relation(fields: [benefitId], references: [id])
+
+  @@id([userId, benefitId])
+  @@map("user_benefit")
+}
